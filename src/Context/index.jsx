@@ -66,51 +66,6 @@ export const StateContextProvider = ({ children }) => {
     useEffect(() => {
         fetchWeather();
     }, [place]);
-    
-    //     try {
-    //         const response = await axios.request(options);
-    //         const data = response.data.data;
-
-    //         if (!data || !data.weather || data.weather.length === 0) {
-    //             throw new Error('Invalid weather data received');
-    //         }
-
-    //         setLocation(data.request[0].query);
-    //         setValues(data.weather[0].hourly);
-    //         setWeather({
-    //             temp: data.current_condition[0].temp_C,
-    //             humidity: data.current_condition[0].humidity,
-    //             wspd: data.current_condition[0].windspeedKmph,
-    //             heatindex: data.current_condition[0].FeelsLikeC,
-    //             conditions: data.current_condition[0].weatherDesc[0].value
-    //         });
-    //     } catch (e) {
-    //         console.error(e);
-    //         alert('Failed to fetch weather data. Please try again.');
-    //     }
-    // };
-    
-    //     try {
-    //         const response = await axios.request(options);
-    //         console.log(response.data)
-    //         const thisData = Object.values(response.data.locations)[0]
-    //         setLocation(thisData.address)
-    //         setValues(thisData.values)
-    //         setWeather(thisData.values[0])
-    //     } catch (e) {
-    //         console.error(e);
-    //         // if the api throws error.
-    //         alert('This place does not exist')
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     fetchWeather()
-    // }, [place])
-
-    // useEffect(() => {
-    //     console.log(values)
-    // }, [values])
 
     return (
         <StateContext.Provider value={{

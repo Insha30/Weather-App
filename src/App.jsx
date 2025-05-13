@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import search from "./assets/icons/search.svg";
 import { useStateContext } from "./Context";
-import { BackgroundLayout, WeatherCard, MiniCard } from "./Components";
+import { BackgroundLayout, WeatherCard, MiniCard } from "./components";
 import Logo from "./assets/icons/Logo.png";
 
 function App() {
@@ -23,29 +23,34 @@ function App() {
         </div>
 
         <div
-          className="bg-white w-[15rem] overflow-hidden shadow-2xl 
-         rounded-full flex items-center p-2 gap-2 border border-gray-300 
-        focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-300"
+          className="relative w-[18rem] sm:w-[20rem] group transition-all duration-300"
         >
-          <img
+        <div
+          className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 blur opacity-50 group-hover:opacity-80 animate-pulse"
+        ></div>
+
+        <div
+          className="relative z-10 flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-lg border border-gray-300
+                focus-within:ring-2 focus-within:ring-blue-400 transition-all duration-300"
+        >
+         <img
             src={search}
             alt="search"
-            className="w-[1.5rem] h-[1.5rem] opacity-70
-          transition-transform duration-300 hover:rotate-12"
+            className="w-[1.5rem] h-[1.5rem] opacity-60 transition-transform duration-300 hover:rotate-12"
           />
-          <input
-            onKeyUp={(e) => {
-              if (e.key === "Enter") {
-                submitCity();
-              }
-            }}
-            type="text"
-            placeholder="Search city..."
-            className="focus:outline-none w-full text-[#212121] text-lg bg-transparent placeholder-gray-500"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-          />
+        <input
+          type="text"
+          placeholder="Search city..."
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyUp={(e) => {
+            if (e.key === "Enter") submitCity();
+          }}
+            className="bg-transparent w-full text-gray-800 text-lg focus:outline-none placeholder-gray-500"
+        />
         </div>
+    </div>
+
       </nav>
 
       <br />
